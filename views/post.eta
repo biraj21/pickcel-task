@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pickcel Task | Post</title>
+
+    <style>
+      :root {
+        font-family: sans-serif;
+      }
+
+      .rss-link {
+        display: block;
+      }
+
+      .description {
+        padding: 10px;
+        background-color: #eee;
+        border-radius: 5px;
+      }
+
+      .images {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .images img {
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1><%= it.post.title %></h1>
+      <small>Published: <%= it.post.pubDate || "n/a" %></small>
+      <a href="<%= it.post.link %>" class="rss-link">RSS link</a>
+
+      <% if (it.post.description) { %>
+        <p class="description"><%= it.post.description %></p>
+      <% } %>
+
+      <!--  -->
+
+      <% if (it.post.images) { %>
+        <div class="images">
+          <% for (const image of it.post.images) { %>
+            <img src="<%= image.url %>" />
+          <% } %>
+        </div>
+      <% } %>
+    </div>
+    </main>
+  </body>
+</html>
